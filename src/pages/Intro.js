@@ -13,9 +13,11 @@ export default function Intro() {
                 <Select label="Genre" options={genres} />
                 <Select label="Theme" options={themes} />
             </div>
+
             <Link to="/search">
-                <button>Find my movies</button>
+                <button className="findmov">Find my movies</button>
             </Link>
+
         </div>
     );
 }
