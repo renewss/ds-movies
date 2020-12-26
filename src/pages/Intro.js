@@ -15,7 +15,7 @@ export default function Intro() {
             </div>
 
             <button className="findmov">
-                <Link to="/search">Find my movies </Link>
+                <Link className="findmovbtn" to="/search">Find my movies </Link>
             </button>
         </div>
     );

@@ -32,16 +32,16 @@ code {
     padding-top: 10px;
     font-size: 15px;
     font-weight: 700;
-    height: 30px;
+    height: 40px;
     text-align: center;
     background-color: #1b1b1b;
     color: #fff;
 }
 .main {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 90px);
 }
 .body1 {
-    padding-top: 8%;
+    padding-top: 4.5%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -50,7 +50,6 @@ h1 {
     font-size: 40px;
 }
 .pref-sel {
-    padding-top: 1%;
     font-size: 30px;
     font-weight: 500;
     width: 55%;
@@ -62,6 +61,12 @@ h1 {
 .selectBox {
     display: flex;
     flex-direction: column;
+}
+#select{
+  padding: 5px;
+  border-radius: 15px;
+  background-color:  #ffa31a;
+  border: none;
 }
 .theme {
     margin-left: 10px;
@@ -78,6 +83,14 @@ h1 {
 }
 .findmov:hover {
     background-color: #ffa31a;
+    color: black;
     cursor: pointer;
-    color: #000;
+    
+}
+.findmovbtn{
+  text-decoration: none;
+  color: #fff;
+}
+.findmovbtn{
+  color: inherit;
 }
