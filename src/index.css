@@ -66,3 +66,18 @@ h1{
 .theme{
   margin-left: 10px;
 }
+.findmov{
+  margin-top: 3%;
+  background-color: #000;
+  color: #fff;
+  padding: 0.7% 2%;
+  border: none;
+  outline: none;
+  border-radius: 1rem;
+  font-weight: 600;
+}
+.findmov:hover{
+  background-color: #ffa31a;
+  cursor: pointer;
+  color:#000;
+}

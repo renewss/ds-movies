@@ -5,7 +5,7 @@ export default function Search() {
         <>
             <div></div>
             <div>
-            <div class="search-container">
+            <div className="search-container">
                 <form action="#">
                     <input type="text" placeholder="Search.." name="search"></input>
                     <button type="submit">Go</button>

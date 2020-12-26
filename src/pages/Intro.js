@@ -9,7 +9,7 @@ export default function Intro() {
                 <Select label="Genre" options={[1,2,3,4]}/>
                 <Select label="Theme" options={[1,2,3,4]}/>
             </div>
-            <button>Find my movies</button>
+            <button className="findmov">Find my movies</button>
         </div>
     )
 }
