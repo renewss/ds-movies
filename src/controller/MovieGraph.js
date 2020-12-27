@@ -87,7 +87,9 @@ class MovieGraph {
         // Filtering out unrelated movies
         const filtered = out.filter((a) => a.value > 0);
 
-        return filtered;
+        const movieList = filtered.map((el) => movies[el.id]);
+
+        return movieList;
     }
 }
 

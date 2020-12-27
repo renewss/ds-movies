@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import movieGraph from './controller/MovieGraph';
 import Intro from './pages/Intro';
 import Search from './pages/Search';
 import Header from './components/Header';
@@ -9,11 +8,6 @@ import Footer from './components/Footer';
 
 function App() {
     const [selected, setSelected] = useState({});
-
-    useEffect(() => {
-        console.log(selected);
-        console.log(movieGraph.getSimilar(selected));
-    }, [selected]);
 
     return (
         <Router>
@@ -25,8 +19,8 @@ function App() {
                         <Route exact path="/">
                             <Intro setMovie={setSelected} />
                         </Route>
-                        <Route path="/search" selected={selected}>
-                            <Search />
+                        <Route path="/search">
+                            <Search selected={selected} />
                         </Route>
                     </Switch>
                 </main>

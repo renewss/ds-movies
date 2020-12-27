@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Select from '../components/Select';
 
+import movieGraph from '../controller/MovieGraph';
 import Movie from '../controller/Movie';
 import genres from '../controller/data/genres';
 import themes from '../controller/data/themes';
@@ -11,15 +12,17 @@ import Card from '../components/Card';
 
 export default function Search(props) {
     const [state, setState] = useState(new Movie());
+    const [result, setResult] = useState([]);
 
     useEffect(() => {
-        console.log(props.selected);
-        if (props.selected) setState(new Movie(...props.selected));
+        if (props.selected) {
+            const list = movieGraph.getSimilar(props.selected);
+            setResult(list);
+        }
     }, [props.selected]);
 
     function handleInputChange(field) {
         return function (e) {
-            console.log(state);
             const change = field === 'mpaa_rating' ? e.target.value : [e.target.value];
             setState({ ...state, [field]: change });
         };
@@ -29,7 +32,9 @@ export default function Search(props) {
         <>
             <div className="searchbody">
                 <div className="result">
-                    <Card></Card>
+                    {result.map((el) => (
+                        <Card data={el} key={el.name} />
+                    ))}
                 </div>
                 <div className="search-container">
                     <form action="#">
