@@ -3,7 +3,9 @@ import React from 'react';
 export default function Select(props) {
     return (
         <div className="selectBox">
-            <label htmlFor="select">{props.label}</label>
+            <label className="label" htmlFor="select">
+                {props.label}
+            </label>
             <select id="select" onChange={props.handleChange}>
                 {props.options.map((el) => {
                     return (

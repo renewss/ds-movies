@@ -58,7 +58,7 @@ h1 {
 .pref-sel {
     font-size: 30px;
     font-weight: 500;
-    width: 55%;
+    min-width: 660px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -67,10 +67,12 @@ h1 {
 .selectBox {
     display: flex;
     flex-direction: column;
+    width: 200px;
 }
 #select {
     padding: 5px;
     border-radius: 15px;
+    width: 200px;
     background-color: #1b1b1b;
     color: #fff;
     border: none;
@@ -87,7 +89,7 @@ h1 {
     margin-top: 3%;
     background-color: #1b1b1b;
     color: #fff;
-    padding: 0.7% 2%;
+    padding: 10px 50px;
     border: none;
     outline: none;
     border-radius: 1rem;
@@ -118,6 +120,7 @@ h1 {
     height: calc(100vh - 90px);
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .search-container {
     display: flex;
@@ -144,20 +147,25 @@ h1 {
 ::placeholder {
     color: #fff;
 }
+.search-name-btn,
 .submit {
-    margin-left: 60px;
-    margin-top: 20px;
-    padding: 4px 40px;
     background-color: #ffa31a;
     border: 2px solid #1b1b1b;
     border-radius: 15px;
     color: #1b1b1b;
 }
+.submit {
+    margin-left: 60px;
+    margin-top: 20px;
+    padding: 4px 40px;
+}
+.search-name-btn:hover,
 .submit:hover {
     background-color: #1b1b1b;
     color: #fff;
     cursor: pointer;
 }
+.search-name-btn,
 .submit:focus {
     outline: none;
 }
@@ -190,6 +198,11 @@ h1 {
     /* overflow: hidden; */
 }
 
+.label {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
 .card--text {
     padding: 2px;
     margin: 1px;
@@ -211,4 +224,24 @@ h1 {
 }
 .card--text-rating {
     padding: 10px;
+}
+
+/** Animation */
+.loader {
+    margin-top: 50px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #ffa31a;
+    width: 120px;
+    height: 120px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

@@ -9,10 +9,13 @@ import actors from '../controller/data/actors';
 import countries from '../controller/data/countries';
 import ratings from '../controller/data/ratings';
 import Card from '../components/Card';
+import rand from '../utils/rand';
 
 export default function Search(props) {
+    const [name, setName] = useState('');
     const [state, setState] = useState(new Movie());
     const [result, setResult] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (props.selected) {
@@ -27,17 +30,25 @@ export default function Search(props) {
             setState({ ...state, [field]: change });
         };
     }
+    function handleSearch() {}
+    function handleSubmit() {
+        setLoading(true);
+        const list = movieGraph.getSimilar(state);
+        setTimeout(() => {
+            setResult(list);
+            setLoading(false);
+        }, rand(400, 100));
+    }
 
     return (
         <>
             <div className="searchbody">
                 <div className="result">
-                    {result.map((el) => (
-                        <Card data={el} key={el.name} />
-                    ))}
+                    {loading ? <div class="loader"></div> : result.map((el) => <Card data={el} key={el.name} />)}
                 </div>
+
                 <div className="search-container">
-                    <form action="#">
+                    <div>
                         <input
                             autoComplete="off"
                             className="searcharea"
@@ -45,14 +56,17 @@ export default function Search(props) {
                             placeholder="Search..."
                             name="search"
                         ></input>
-                    </form>
+                        <button type="submit" className="search-name-btn" onClick={handleSubmit}>
+                            Search
+                        </button>
+                    </div>
                     <div className="search-sel">
                         <Select label="Genre" id="genre " options={genres} handleChange={handleInputChange('genre')} />
                         <Select label="Theme" options={themes} handleChange={handleInputChange('theme')} />
                         <Select label="Actors" options={actors} handleChange={handleInputChange('actors')} />
                         <Select label="Countires" options={countries} handleChange={handleInputChange('countries')} />
                         <Select label="MPA Rating" options={ratings} handleChange={handleInputChange('mpaa_rating')} />
-                        <button type="submit" className="submit">
+                        <button type="submit" className="submit" onClick={handleSubmit}>
                             Go
                         </button>
                     </div>

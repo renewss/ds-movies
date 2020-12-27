@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default function Card(props) {
+    function formatNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
     return (
         <>
             <div className="cardbox">
@@ -14,7 +17,7 @@ export default function Card(props) {
 
                 <div className="card--footer">
                     <p className="card--text card--text-year">Year: {props.data.year}</p>
-                    <p className="card--text card--text-budget">Budget: {props.data.budget} $</p>
+                    <p className="card--text card--text-budget">Budget: {formatNumber(props.data.budget)} $</p>
                 </div>
             </div>
         </>
