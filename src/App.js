@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import movieGraph from './controller/MovieGraph';
@@ -5,10 +6,14 @@ import Intro from './pages/Intro';
 import Search from './pages/Search';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { useState } from 'react';
 
 function App() {
     const [selected, setSelected] = useState({});
+
+    useEffect(() => {
+        console.log(selected);
+        console.log(movieGraph.getSimilar(selected));
+    }, [selected]);
 
     return (
         <Router>
