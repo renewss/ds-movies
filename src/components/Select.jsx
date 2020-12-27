@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
 
 export default function Select(props) {
-    console.log(props)
     return (
-        <div className="selectBox"> 
+        <div className="selectBox">
             <label htmlFor="select">{props.label}</label>
-            <select name="select" id="select">
-                {props.options.map(el => {
-                    return <option value={el} key={el}>{el}</option>
+            <select name="Genre" id="select" onChange={props.handleChange}>
+                {props.options.map((el) => {
+                    return (
+                        <option value={el} key={el}>
+                            {el}
+                        </option>
+                    );
                 })}
             </select>
         </div>
-    )
+    );
 }
