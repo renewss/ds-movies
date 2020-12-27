@@ -89,7 +89,7 @@ h1 {
     margin-top: 3%;
     background-color: #1b1b1b;
     color: #fff;
-    padding: 10px 50px;
+    padding: 12px 50px;
     border: none;
     outline: none;
     border-radius: 1rem;
@@ -200,7 +200,7 @@ h1 {
 
 .label {
     color: black;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: bolder;
 }
 .card--text {

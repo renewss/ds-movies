@@ -19,7 +19,7 @@ export default function Search(props) {
 
     useEffect(() => {
         if (props.selected) {
-            const list = movieGraph.getSimilar(props.selected);
+            const list = movieGraph.getByPref(props.selected);
             setResult(list);
         }
     }, [props.selected]);
@@ -30,21 +30,43 @@ export default function Search(props) {
             setState({ ...state, [field]: change });
         };
     }
-    function handleSearch() {}
-    function handleSubmit() {
+    function handleSearch() {
         setLoading(true);
-        const list = movieGraph.getSimilar(state);
+        const list = movieGraph.searchByName(name);
         setTimeout(() => {
             setResult(list);
             setLoading(false);
         }, rand(400, 100));
+    }
+    function handleSubmit() {
+        setLoading(true);
+        const list = movieGraph.getByPref(state);
+        setTimeout(() => {
+            setResult(list);
+            setLoading(false);
+        }, rand(400, 100));
+    }
+    function handleFindSimilar(name) {
+        return function () {
+            setLoading(true);
+            const list = movieGraph.getSimilar({ name });
+
+            setTimeout(() => {
+                setResult(list);
+                setLoading(false);
+            }, rand(400, 100));
+        };
     }
 
     return (
         <>
             <div className="searchbody">
                 <div className="result">
-                    {loading ? <div class="loader"></div> : result.map((el) => <Card data={el} key={el.name} />)}
+                    {loading ? (
+                        <div className="loader"></div>
+                    ) : (
+                        result.map((el) => <Card data={el} key={el.name} handleClick={handleFindSimilar(el.name)} />)
+                    )}
                 </div>
 
                 <div className="search-container">
@@ -55,8 +77,12 @@ export default function Search(props) {
                             type="text"
                             placeholder="Search..."
                             name="search"
+                            value={name}
+                            onChange={(e) => {
+                                setName(e.target.value);
+                            }}
                         ></input>
-                        <button type="submit" className="search-name-btn" onClick={handleSubmit}>
+                        <button type="submit" className="search-name-btn" onClick={handleSearch}>
                             Search
                         </button>
                     </div>

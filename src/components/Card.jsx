@@ -18,6 +18,9 @@ export default function Card(props) {
                 <div className="card--footer">
                     <p className="card--text card--text-year">Year: {props.data.year}</p>
                     <p className="card--text card--text-budget">Budget: {formatNumber(props.data.budget)} $</p>
+                    <button className="search-name-btn" onClick={props.handleClick}>
+                        Find Similar
+                    </button>
                 </div>
             </div>
         </>

@@ -78,7 +78,7 @@ class MovieGraph {
         return out;
     }
 
-    getSimilar(pref = {}) {
+    getByPref(pref = {}) {
         const relations = this._findRelation(pref).map((el, i) => ({ id: i, value: el }));
 
         // Sorting in descending order
@@ -90,6 +90,29 @@ class MovieGraph {
         const movieList = filtered.map((el) => movies[el.id]);
 
         return movieList;
+    }
+
+    searchByName(name) {
+        return this.list.filter((el) => el.name.includes(name));
+    }
+
+    getSimilar(movie) {
+        console.log(this.matrix);
+        for (let i in this.list) {
+            if (this.list[i].name === movie.name) {
+                const relations = this.matrix[i].map((el, i) => ({ id: i, value: el }));
+
+                // Sorting in descending order
+                const out = relations.sort((a, b) => b.value - a.value);
+
+                // Filtering out unrelated movies
+                const filtered = out.filter((a) => a.value > 0);
+
+                const movieList = filtered.map((el) => movies[el.id]);
+
+                return movieList;
+            }
+        }
     }
 }
 
