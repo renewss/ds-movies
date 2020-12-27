@@ -6,8 +6,8 @@ import genres from '../controller/data/genres';
 import themes from '../controller/data/themes';
 import actors from '../controller/data/actors';
 import countries from '../controller/data/countries';
-import movies from '../controller/data/movies';
 import ratings from '../controller/data/ratings';
+import Card from '../components/Card'
 
 export default function Search(props) {
     const [state, setState] = useState(new Movie());
@@ -28,10 +28,12 @@ export default function Search(props) {
     return (
         <>
             <div className="searchbody">
-                <div className="result"></div>
+                <div className="result">
+                  <Card></Card>  
+                </div>
                 <div className="search-container">
                     <form action="#">
-                        <input type="text" placeholder="Search.." name="search"></input>
+                        <input autoComplete="off" className="searcharea" type="text" placeholder="Search..." name="search"></input>
                     </form>
                     <div className="search-sel">
                         <Select label="Genre" id="genre " options={genres} handleChange={handleInputChange('genre')} />
