@@ -34,7 +34,7 @@ export default function Intro(props) {
             </div>
 
             <button className="findmov" onClick={handleSubmit}>
-                <Link to="/search">Find my movies </Link>
+                <Link to="/search" className="findmovbtn">Find my movies </Link>
             </button>
         </div>
     );

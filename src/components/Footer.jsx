@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <footer className="footer">U1910028 Anvarov Mirzakobil ||| U1910301 Ibragimov Abdujabbor</footer>
+        <footer className="footer"><span className="studentid">U1910028</span> Anvarov Mirzakobil   |   <span className="studentid">U1910301</span> Ibragimov Abdujabbor</footer>
     )
 }
