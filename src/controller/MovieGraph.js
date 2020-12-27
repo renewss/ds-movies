@@ -83,7 +83,11 @@ class MovieGraph {
 
         // Sorting in descending order
         const out = relations.sort((a, b) => b.value - a.value);
-        return out;
+
+        // Filtering out unrelated movies
+        const filtered = out.filter((a) => a.value > 0);
+
+        return filtered;
     }
 }
 
