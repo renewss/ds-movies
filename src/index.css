@@ -24,7 +24,7 @@ code {
 .hub {
     padding: 0 5px;
     margin-left: 5px;
-    color: #000;
+    color:  #1b1b1b;
     background-color: #ffa31a;
     border-radius: 2px;
 }
@@ -41,6 +41,7 @@ code {
     height: calc(100vh - 90px);
 }
 .body1 {
+    background-color: #fff;
     padding-top: 4.5%;
     display: flex;
     align-items: center;
@@ -68,12 +69,17 @@ h1 {
   background-color:  #ffa31a;
   border: none;
 }
+#select:focus{
+  border: none;
+  outline: none;
+  border-style: none;
+}
 .theme {
     margin-left: 10px;
 }
 .findmov {
     margin-top: 3%;
-    background-color: #000;
+    background-color:  #1b1b1b;
     color: #fff;
     padding: 0.7% 2%;
     border: none;
@@ -83,7 +89,7 @@ h1 {
 }
 .findmov:hover {
     background-color: #ffa31a;
-    color: black;
+    color:  #1b1b1b;
     cursor: pointer;
     
 }
@@ -93,4 +99,26 @@ h1 {
 }
 .findmovbtn{
   color: inherit;
+}
+.searchbody{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result{
+  padding: 0 10%;
+  width: 70%;
+  height: calc(100vh - 90px);
+  background-color: #3ff;
+}
+.search-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  height: calc(100vh - 90px);
+  background-color:  #1b1b1b;
+  color: #fff;
 }

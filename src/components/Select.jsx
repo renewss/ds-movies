@@ -5,7 +5,7 @@ export default function Select(props) {
     return (
         <div className="selectBox"> 
             <label htmlFor="select">{props.label}</label>
-            <select name="Genre" id="select">
+            <select name="select" id="select">
                 {props.options.map(el => {
                     return <option value={el} key={el}>{el}</option>
                 })}
